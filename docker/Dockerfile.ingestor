@@ -1,0 +1,12 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY scripts/ scripts/
+
+ENV KAFKA_BROKER=kafka:9094
+
+CMD ["python", "scripts/ws_ingest.py", "--pair", "BTC-USD", "--minutes", "15"]

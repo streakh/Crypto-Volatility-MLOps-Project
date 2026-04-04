@@ -42,5 +42,16 @@ services:
       timeout: 5s
       retries: 5
 
+  ingestor:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ingestor
+    container_name: ingestor
+    depends_on:
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ../data/raw:/app/data/raw
+
 volumes:
   kafka_data:
