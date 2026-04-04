@@ -1,0 +1,10 @@
+websockets
+confluent-kafka
+python-dotenv
+pyyaml
+mlflow
+pandas
+pyarrow
+numpy
+scikit-learn
+evidently
