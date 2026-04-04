@@ -8,3 +8,5 @@
 | confluent-kafka Consumer setup with earliest offset and PARTITION_EOF handling | `scripts/kafka_consume_check.py` | Ran against live topic, confirmed correct message consumption |
 | Draft scoping brief structure and risk table | `docs/scoping_brief.md` | Reviewed and edited content to match project specifics |
 | Rolling window pruning with deque for per-product tick windows | `features/featurizer.py` | Verified window correctly drops ticks older than 60s; checked feature output against manual calculation |
+| Forward-looking sigma_future computation with numpy datetime indexing | `notebooks/eda.ipynb` | Validated label counts match expected percentile rates |
+| Evidently Report API for drift and data quality presets | `scripts/generate_evidently.py` | Fixed preset name (DataSummaryPreset); reviewed generated HTML reports |
