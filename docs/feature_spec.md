@@ -6,8 +6,8 @@
 - **Volatility proxy:** Rolling standard deviation of midprice log-returns over the next 60s
 - **Label definition:** 1 if sigma_future >= threshold; else 0
 - **Chosen threshold:** 0.00001266 (90th percentile of sigma_future, BTC-USD only)
-- **Justification:** P90 yields a ~10% positive rate, providing sufficient spike samples
-  for training while keeping the label selective. Threshold is computed from BTC-USD data only to avoid scale confounding with ETH-USD. The percentile plot shows a smooth curve with a clear uptick above P90, indicating that the top decile captures meaningfully elevated volatility.
+- **Justification:** P90 yields a ~10% positive rate, providing sufficient spike samples for training while keeping the label selective. Threshold is computed from BTC-USD data only to avoid scale confounding with ETH-USD. The percentile plot shows a smooth curve with a clear uptick above P90, indicating that the top decile captures meaningfully elevated volatility.
+- **Note:** when filtered to BTC-USD only for modeling, the P90 threshold is 0.00001266 (see model_card_v1.md for model-specific details).
 
 ## Input Features
 
