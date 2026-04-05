@@ -40,21 +40,24 @@ models/              Training, inference, artifacts
 notebooks/           EDA
 reports/             Evaluation + drift reports
 docs/                Scoping brief, feature spec, model card, GenAI log
-data/raw/            Captured raw ticks (gitignored)
-data/processed/      Features + predictions (gitignored)
+data/raw/            Captured raw ticks
+data/processed/      Features + predictions
 handoff/             Team handoff package
-mlruns/              MLflow store (gitignored)
+mlruns/              MLflow store
 ```
 
 ## Key Results
 
-| Model | Test PR-AUC | Test F1 |
-|---|---|---|
-| Baseline (z-score) | 0.1734 | 0.2179 |
-| Logistic Regression | 0.1758 | 0.1771 |
+
+| Model               | Test PR-AUC | Test F1 |
+| ------------------- | ----------- | ------- |
+| Baseline (z-score)  | 0.1734      | 0.2179  |
+| Logistic Regression | 0.1758      | 0.1771  |
+
 
 ## Requirements
 
 - Python 3.10+
 - Docker (for Kafka and MLflow)
 - Coinbase API credentials in `.env` (see `.env.example`)
+
