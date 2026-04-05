@@ -1,0 +1,17 @@
+{
+  "feature_cols": [
+    "midprice_log_return",
+    "bid_ask_spread",
+    "spread_bps",
+    "rolling_volatility",
+    "trade_intensity",
+    "order_book_imbalance"
+  ],
+  "threshold": 1.2656110710506755e-05,
+  "threshold_percentile": 90,
+  "horizon_sec": 60,
+  "train_rows": 10349,
+  "val_rows": 3450,
+  "test_rows": 3450,
+  "opt_threshold": 0.8157027778649844
+}
