@@ -1,6 +1,7 @@
 .env
 venv/
 __pycache__/
-data/
-mlruns/
+# data/
+# mlruns/
 *.pyc
+.DS_Store

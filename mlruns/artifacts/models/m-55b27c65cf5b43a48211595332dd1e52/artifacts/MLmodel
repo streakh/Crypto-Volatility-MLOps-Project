@@ -1,0 +1,23 @@
+artifact_path: /Users/streakhoney/Desktop/Operationalizing AI/crypto-volatility-mlOps/mlruns/artifacts/models/m-55b27c65cf5b43a48211595332dd1e52/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.4
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.1
+    skops_trusted_types: null
+mlflow_version: 3.10.1
+model_id: m-55b27c65cf5b43a48211595332dd1e52
+model_size_bytes: 773
+model_uuid: m-55b27c65cf5b43a48211595332dd1e52
+prompts: null
+run_id: cc2902c72a474a70acfe89b696bef6f6
+utc_time_created: '2026-04-05 00:16:05.713175'
