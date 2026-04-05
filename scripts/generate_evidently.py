@@ -29,16 +29,21 @@ FEATURE_COLS = [
 ]
 
 
-def generate_reports(parquet_path: str, out_dir: str):
+def generate_reports(parquet_path: str, out_dir: str, reference_path: str = None):
     df = pd.read_parquet(parquet_path)
     df["timestamp"] = pd.to_datetime(df["timestamp"])
     df = df.sort_values("timestamp").reset_index(drop=True)
 
-    midpoint = len(df) // 2
-    early = df.iloc[:midpoint][FEATURE_COLS].reset_index(drop=True)
-    late = df.iloc[midpoint:][FEATURE_COLS].reset_index(drop=True)
-
-    logger.info("Early window: %d rows, Late window: %d rows", len(early), len(late))
+    if reference_path:
+        ref = pd.read_parquet(reference_path)
+        early = ref[FEATURE_COLS].reset_index(drop=True)
+        late = df[FEATURE_COLS].reset_index(drop=True)
+        logger.info("Reference: %d rows, Current: %d rows", len(early), len(late))
+    else:
+        midpoint = len(df) // 2
+        early = df.iloc[:midpoint][FEATURE_COLS].reset_index(drop=True)
+        late = df.iloc[midpoint:][FEATURE_COLS].reset_index(drop=True)
+        logger.info("Early window: %d rows, Late window: %d rows", len(early), len(late))
 
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -63,11 +68,15 @@ def main():
         help="Path to features Parquet file",
     )
     parser.add_argument(
+        "--reference", default=None,
+        help="Reference Parquet (e.g. training data). If omitted, splits input in half.",
+    )
+    parser.add_argument(
         "--out", default="reports/evidently",
         help="Output directory for reports",
     )
     args = parser.parse_args()
-    generate_reports(args.features, args.out)
+    generate_reports(args.features, args.out, args.reference)
 
 
 if __name__ == "__main__":
